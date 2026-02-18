@@ -3,13 +3,11 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-# ROOT
 @app.get("/")
 def root():
     return {"message": "OptiTrade API running"}
 
 
-# USER
 @app.get("/user")
 def get_user():
     return {
@@ -19,7 +17,6 @@ def get_user():
     }
 
 
-# NOVA
 @app.get("/nova")
 def get_nova():
     return {
@@ -29,7 +26,6 @@ def get_nova():
     }
 
 
-# TRADES
 @app.get("/trades")
 def get_trades():
     return [
