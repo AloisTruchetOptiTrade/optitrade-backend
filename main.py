@@ -3,49 +3,37 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
+# ROOT
 @app.get("/")
 def root():
     return {"message": "OptiTrade API running"}
 
 
-@app.get("/account")
-def account():
+# USER
+@app.get("/user")
+def get_user():
     return {
-        "user": "Alois",
-        "balance": 12450,
-        "currency": "USD",
-        "status": "active"
+        "name": "Aloïs",
+        "capital": 24830.42,
+        "bot": "CELESTE"
     }
 
 
-@app.get("/bots")
-def bots():
-    return [
-        {
-            "name": "Celeste",
-            "status": "running",
-            "profit": 245.50
-        },
-        {
-            "name": "Nova",
-            "status": "stopped",
-            "profit": 0
-        }
-    ]
+# NOVA
+@app.get("/nova")
+def get_nova():
+    return {
+        "status": "ACTIVE",
+        "ai": "NOVA",
+        "version": "1.0"
+    }
 
 
+# TRADES
 @app.get("/trades")
-def trades():
+def get_trades():
     return [
-        {
-            "pair": "BTC/USD",
-            "profit": 45.2,
-            "date": "2026-02-18"
-        },
-        {
-            "pair": "GOLD",
-            "profit": -12.4,
-            "date": "2026-02-17"
-        }
+        {"pair": "BTC/USD", "profit": 420},
+        {"pair": "XAU/USD", "profit": 210}
     ]
 
